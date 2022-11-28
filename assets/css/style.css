@@ -164,75 +164,13 @@
   font-size: 1.2em;
 }
 
-.form-group {
-  position: relative;
-  padding: 20px 0;
-  width: 300px;
-  max-width: 100%;
-}
-
-.form-group input {
-  border: none;
-  background-color: #a2d9ff;
-  display: block;
-  font-size: 16px;
-  padding: 10px;
-  width: 100%;
-  border-radius: 10px;
-}
-
-.form-group textarea {
-  border: none;
-  background-color: #a2d9ff;
-  display: block;
-  font-size: 16px;
-  padding: 10px;
-  width: 100%;
-  border-radius: 10px;
-}
-
-.form-group label {
-  color: black;
-  font-size: 16px;
-  position: absolute;
-  top: 0;
-  left: 10px;
-  pointer-events: none;
-  transform: translateY(30px);
-  transition: all 0.2s ease-in-out;
-}
-
-.form-group input:valid,
-.form-group input:focus {
-  border-bottom-color: #ee6e73;
-  outline: none;
-}
-
-.form-group input:valid + label,
-.form-group input:focus + label {
-  font-size: 16px;
-  transform: translateY(-5px);
-}
-
-.form-group textarea:valid,
-.form-group textarea:focus {
-  border-bottom-color: #ee6e73;
-  outline: none;
-}
-
-.form-group textarea:valid + label,
-.form-group textarea:focus + label {
-  font-size: 16px;
-  transform: translateY(-5px);
-}
-
 .cont-style {
   text-decoration: none;
-  color: #fff724;
+  color: #fff701;
 }
 
 .cont-style:hover {
-  color: #fff724;
+  color: #a8a425;
 }
 
 @-webkit-keyframes freccia {
