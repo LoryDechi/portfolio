@@ -23,6 +23,11 @@ body {
   background-size: 105% 105%;
 }
 
+.personal-nav {
+  background-color: rgba(34, 40, 49, 0.7921568627);
+  box-shadow: 2px 0 15px white;
+}
+
 .navbar-nav a {
   color: white;
 }
