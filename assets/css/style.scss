@@ -1,3 +1,7 @@
+body {
+    overflow: overlay;
+}
+
 .s1 {
     // background: linear-gradient(blue, rgb(85, 189, 223));
     background-color: #222831;
@@ -203,12 +207,13 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #d3d3d3;
+    background: transparent;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: #888;
+    border-radius: 25px;
 }
 
 /* Handle on hover */
