@@ -27,6 +27,11 @@ h2 {
   text-shadow: 7px 0 5px rgba(255, 248, 36, 0.247);
 }
 
+.grazie {
+  color: #fff724;
+  text-shadow: 7px 0 5px rgba(255, 248, 36, 0.247);
+}
+
 .wrapper {
   background-attachment: fixed;
   position: absolute;
