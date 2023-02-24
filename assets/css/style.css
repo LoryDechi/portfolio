@@ -1,14 +1,20 @@
 body {
   overflow: overlay;
+  background-color: #151515;
 }
 
 .s1 {
-  background-color: #222831;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 150vh;
+  overflow: hidden;
 }
 
 .s2,
 .s4 {
-  background-color: #393E46;
+  background-color: transparent;
   overflow: hidden;
 }
 
@@ -16,26 +22,151 @@ body {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgb(255, 247, 36)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-.wrapper {
-  height: 100vh;
-  background-image: url(../img/future-grid.webp);
-  background-attachment: fixed;
-  background-size: 105% 105%;
+h2 {
+  color: #fff724;
+  text-shadow: 7px 0 5px rgba(255, 248, 36, 0.247);
 }
 
+.wrapper {
+  background-attachment: fixed;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.wrapper h1 {
+  text-shadow: 7px 0 5px rgba(255, 248, 36, 0.247);
+}
+
+.glowing {
+  position: relative;
+  top: -250px;
+  min-width: 750px;
+  height: 750px;
+  margin: -150px;
+  transform-origin: right;
+  animation: colorChange 5s linear infinite;
+}
+
+.glowing:nth-child(even) {
+  transform-origin: left;
+}
+
+.glowing span {
+  position: absolute;
+  top: calc(80px * var(--i));
+  left: calc(80px * var(--i));
+  bottom: calc(80px * var(--i));
+  right: calc(80px * var(--i));
+}
+
+.glowing span::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -8px;
+  width: 15px;
+  height: 15px;
+  background: #f00;
+  border-radius: 50%;
+}
+
+.glowing span:nth-child(3n+1)::before {
+  background: rgb(134, 255, 0);
+  box-shadow: 0 0 20px rgb(134, 255, 0), 0 0 40px rgb(134, 255, 0), 0 0 60px rgb(134, 255, 0), 0 0 80px rgb(134, 255, 0), 0 0 0 8px rgba(134, 255, 0, 0.1);
+}
+
+.glowing span:nth-child(3n+2)::before {
+  background: rgb(255, 214, 0);
+  box-shadow: 0 0 20px rgb(255, 214, 0), 0 0 40px rgb(255, 214, 0), 0 0 60px rgb(255, 214, 0), 0 0 80px rgb(255, 214, 0), 0 0 0 8px rgba(255, 214, 0, 0.1);
+}
+
+.glowing span:nth-child(3n+3)::before {
+  background: rgb(0, 226, 255);
+  box-shadow: 0 0 20px rgb(0, 226, 255), 0 0 40px rgb(0, 226, 255), 0 0 60px rgb(0, 226, 255), 0 0 80px rgb(0, 226, 255), 0 0 0 8px rgba(0, 226, 255, 0.1);
+}
+
+.glowing span:nth-child(3n+1) {
+  animation: animate 10s alternate infinite;
+}
+
+.glowing span:nth-child(3n+2) {
+  animation: animate-reverse 3s alternate infinite;
+}
+
+.glowing span:nth-child(3n+3) {
+  animation: animate 8s alternate infinite;
+}
+
+@keyframes colorChange {
+  0% {
+    filter: hue-rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes animate-reverse {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
 .personal-nav {
-  background-color: rgba(34, 40, 49, 0.7921568627);
-  box-shadow: 2px 0 15px white;
+  background-color: rgba(31, 33, 36, 0.8352941176);
+  box-shadow: 2px 0 8px rgba(255, 255, 255, 0.649);
 }
 
 .navbar-nav a {
   color: white;
+  font-size: 1.2em;
+  margin-right: 30px;
 }
 
-.navbar-nav a:hover,
-.active {
+.navbar-nav span {
+  margin-left: 50px;
+}
+
+.navbar-nav span a {
+  margin-right: 10px;
+}
+
+.navbar-nav a:hover {
   color: #fff724 !important;
-  text-decoration: underline;
+}
+
+.active {
+  color: white !important;
+}
+
+#info {
+  position: absolute;
+  left: 15%;
+  bottom: -30px;
+  width: 500px;
+}
+#info h2 {
+  font-size: 1.8em;
+  color: #fff724;
+  text-shadow: 7px 0 5px rgba(255, 248, 36, 0.247);
+}
+#info h3 {
+  color: white;
+}
+#info p {
+  color: white;
 }
 
 .next {
@@ -45,116 +176,44 @@ body {
   font-weight: lighter;
   color: #fff724;
   margin-bottom: 20px;
-  -webkit-animation: freccia 2s infinite;
-          animation: freccia 2s infinite;
+  animation: freccia 2s infinite;
+  text-decoration: none;
 }
 
-.next-tip {
-  font-size: 20px;
-}
-
-.arrow {
-  text-align: center;
+.next:hover {
+  color: #a8a425;
 }
 
 .auto-type {
   color: #fff724;
 }
 
-.timeline {
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-bottom: 20px;
+#works {
+  margin-top: -100px;
+  padding-bottom: 100px;
 }
-
-/* The actual timeline (the vertical ruler) */
-.timeline::after {
-  content: "";
-  position: absolute;
-  width: 3px;
-  background-color: rgb(183, 179, 179);
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  margin-left: -3px;
+#works .laptop {
+  width: 100%;
 }
-
-/* Container around content */
-.time-container {
-  padding: 10px 40px;
-  position: relative;
-  background-color: inherit;
+#works .carousel {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+#works .insideCarousel {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+#works .insideCarousel .pr {
   width: 50%;
 }
-
-/* The circles on the timeline */
-.time-container::after {
-  content: "";
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  right: -12px;
-  background-color: white;
-  border: 4px solid #fff724;
-  top: 15px;
-  border-radius: 50%;
-  z-index: 1;
+#works .insideCarousel .desc {
+  width: 30%;
 }
-
-/* Place the container to the left */
-.left {
-  left: 0;
-}
-
-/* Place the container to the right */
-.right {
-  left: 50%;
-}
-
-/* Add arrows to the left container (pointing right) */
-.pointing::before {
-  content: " ";
-  height: 0;
-  position: absolute;
-  top: 12px;
-  width: 0;
-  z-index: 1;
-  right: -10px;
-  border: medium solid #0C7B93;
-  border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent #0C7B93;
-}
-
-/* Add arrows to the right container (pointing left) */
-.pointing-r::before {
-  content: " ";
-  height: 0;
-  position: absolute;
-  top: 12px;
-  width: 0;
-  z-index: 1;
-  left: -10px;
-  border: medium solid #0C7B93;
-  border-width: 10px 10px 10px 0;
-  border-color: transparent #0C7B93 transparent transparent;
-}
-
-/* Fix the circle for containers on the right side */
-.right::after {
-  left: -13px;
-}
-
-/* The actual content */
-.content {
-  color: white;
-  padding: 20px 30px;
-  background-color: #0C7B93;
-  position: relative;
-  border-radius: 6px;
-  box-shadow: 0 8px 25px -4px black;
-}
-.content h3 {
+#works .insideCarousel .desc h3 {
+  text-align: center;
   color: #fff724;
 }
 
@@ -163,20 +222,35 @@ body {
   color: #fff724;
 }
 
+.personal-btn:hover {
+  color: #a8a425;
+  border: 1px solid #a8a425;
+}
+
 #skills {
-  background-color: #0C7B93;
+  background-color: #151515;
+  padding-bottom: 100px;
 }
 #skills .lang {
   margin: 0 auto;
 }
-#skills .lang div {
+#skills .lang .row {
   display: flex;
   justify-content: center;
+}
+#skills .lang .row .linguaggi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
 }
 #skills img {
   width: 100px;
 }
 
+#contacts {
+  padding-top: 100px;
+}
 #contacts h2 {
   font-size: 3.5em;
 }
@@ -191,6 +265,168 @@ body {
 
 .cont-style:hover {
   color: #a8a425;
+}
+
+#fcf-form {
+  display: block;
+}
+
+.fcf-body {
+  margin: 0;
+  font-family: -apple-system, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #fff;
+  padding: 30px;
+  padding-bottom: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  max-width: 100%;
+}
+
+.fcf-form-group {
+  margin-bottom: 1rem;
+}
+
+.fcf-input-group {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+}
+
+.fcf-form-control {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  outline: none;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.fcf-form-control:focus {
+  border: 1px solid #313131;
+}
+
+select.fcf-form-control[size],
+select.fcf-form-control[multiple] {
+  height: auto;
+}
+
+textarea.fcf-form-control {
+  font-family: -apple-system, Arial, sans-serif;
+  height: auto;
+}
+
+label.fcf-label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.fcf-credit {
+  padding-top: 10px;
+  font-size: 0.9rem;
+  color: #545b62;
+}
+
+.fcf-credit a {
+  color: #545b62;
+  text-decoration: underline;
+}
+
+.fcf-credit a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.fcf-btn {
+  display: inline-block;
+  font-weight: 400;
+  color: #212529;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fcf-btn {
+    transition: none;
+  }
+}
+.fcf-btn:hover {
+  color: #212529;
+  text-decoration: none;
+}
+
+.fcf-btn:focus,
+.fcf-btn.focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.fcf-btn-primary {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.fcf-btn-primary:hover {
+  color: #fff;
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+.fcf-btn-primary:focus,
+.fcf-btn-primary.focus {
+  color: #fff;
+  background-color: #0069d9;
+  border-color: #0062cc;
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+
+.fcf-btn-lg,
+.fcf-btn-group-lg > .fcf-btn {
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  border-radius: 0.3rem;
+}
+
+.fcf-btn-block {
+  display: block;
+  width: 100%;
+}
+
+.fcf-btn-block + .fcf-btn-block {
+  margin-top: 0.5rem;
+}
+
+input[type=submit].fcf-btn-block,
+input[type=reset].fcf-btn-block,
+input[type=button].fcf-btn-block {
+  width: 100%;
 }
 
 /* width */
@@ -212,15 +448,6 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
-}
-
-@-webkit-keyframes freccia {
-  0% {
-    bottom: 15px;
-  }
-  100% {
-    bottom: 0;
-  }
 }
 
 @keyframes freccia {
@@ -252,7 +479,7 @@ body {
   }
   /* Make sure all circles are at the same spot */
   .left::after,
-.right::after {
+  .right::after {
     left: 15px;
   }
   .pointing::before {
